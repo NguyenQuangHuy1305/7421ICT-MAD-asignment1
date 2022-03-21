@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    var person: PersonViewModel
+    
     var body: some View {
-        Text("Hello, world!")
+        Text("Hello, \(person.fullName)!")
             .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(person: PersonViewModel(person:
+            Person(firstName: "Rene", lastName: "Hexel")))
     }
 }
