@@ -11,16 +11,16 @@ struct ContentView: View {
     var personList: [PersonViewModel]
     
     var body: some View {
-        List(personList, id: \.fullName) {person in
-            Text("Hello, \(person.fullName)!")
-                .padding()
+        NavigationView {
+            PersonListView(personList: personList)
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(personList: [PersonViewModel(person:
-            Person(firstName: "Rene", lastName: "Hexel"))])
+        ContentView(personList: [
+            PersonViewModel(person: Person(firstName: "Rene", lastName: "Hexel")),
+        ])
     }
 }
