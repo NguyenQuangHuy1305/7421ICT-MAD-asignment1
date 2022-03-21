@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct PersonViewModel {
+struct PersonViewModel: Identifiable {
     var person: Person
+    var id: UUID{person.id}
     
     var fullName: String {
         person.firstName + " " + person.lastName
