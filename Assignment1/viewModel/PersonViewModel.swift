@@ -15,3 +15,17 @@ struct PersonViewModel: Identifiable {
         person.firstName + " " + person.lastName
     }
 }
+
+//struct PersonListViewModel {
+//
+//    var items: [Person] = []
+//
+//    func addNewItem(item: Person) {
+//        items.append(item)
+//    }
+//
+//    func deleteItem(atIndex index: Int) {
+//        items.remove(at: index)
+//    }
+//
+//}

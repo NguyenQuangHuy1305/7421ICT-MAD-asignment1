@@ -10,9 +10,13 @@ import SwiftUI
 @main
 struct Assignment1App: App {
     var viewModel = [
-        PersonViewModel(person: Person(firstName: "Huy", lastName: "Nguyen")),
-        PersonViewModel(person: Person(firstName: "abc", lastName: "bcd")),
-        PersonViewModel(person: Person(firstName: "cde", lastName: "def")),
+        PersonViewModel(person: Person(firstName: "John", lastName: "Smith", isCompleted: true)),
+        PersonViewModel(person: Person(firstName: "Wu", lastName: "Liuqi", isCompleted: true)),
+        PersonViewModel(person: Person(firstName: "Huy", lastName: "Nguyen", isCompleted: true)),
+        PersonViewModel(person: Person(firstName: "Johnny", lastName: "Sin", isCompleted: true)),
+        PersonViewModel(person: Person(firstName: "Jack", lastName: "Sparrow", isCompleted: false)),
+        PersonViewModel(person: Person(firstName: "a", lastName: "b", isCompleted: false)),
+
     ]
     
     var body: some Scene {

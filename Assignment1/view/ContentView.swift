@@ -20,7 +20,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(personList: [
-            PersonViewModel(person: Person(firstName: "Rene", lastName: "Hexel")),
+            PersonViewModel(person: Person(firstName: "Rene", lastName: "Hexel", isCompleted: true)),
         ])
     }
 }

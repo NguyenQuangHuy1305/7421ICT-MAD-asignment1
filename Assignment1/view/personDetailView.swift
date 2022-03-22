@@ -12,7 +12,6 @@ struct personDetailView: View {
     
     var body: some View {
         VStack {
-            Text("Hello, \(person.fullName)!")
             Text("ID: \(person.id)!")
         }
     }
@@ -21,7 +20,7 @@ struct personDetailView: View {
 struct personDetailView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(personList: [
-            PersonViewModel(person: Person(firstName: "Rene", lastName: "Hexel")),
+            PersonViewModel(person: Person(firstName: "Rene", lastName: "Hexel", isCompleted: true)),
         ])
     }
 }

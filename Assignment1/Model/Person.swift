@@ -11,4 +11,5 @@ struct Person: Identifiable {
     var id = UUID()
     var firstName: String
     var lastName: String
+    var isCompleted: Bool
 }
