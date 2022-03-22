@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct PersonListView: View {
-    @State var personList: [PersonViewModel]
-//    @State private var checked = false
+    @EnvironmentObject var listViewModel: ListViewModel
 
     var body: some View {
         List {
-            ForEach(personList) {personViewModel in
+            ForEach(listViewModel.personList) {personViewModel in
                 HStack {
                     Image(systemName: personViewModel.person.isCompleted ? "checkmark.square" : "square")
                         .foregroundColor(personViewModel.person.isCompleted ? .green : .red)
@@ -22,7 +21,8 @@ struct PersonListView: View {
                     }
                 }
             }
-            .onDelete(perform: deletePerson)
+            .onDelete(perform: listViewModel.deletePerson)
+            .onMove(perform: listViewModel.movePerson)
         }
         .navigationBarItems(
         leading: EditButton(),
@@ -30,16 +30,13 @@ struct PersonListView: View {
             NavigationLink("Add", destination: AddView())
         )
     }
-    
-    func deletePerson(indexSet: IndexSet) {
-        personList.remove(atOffsets: indexSet)
-    }
 }
 
 struct MasterView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(personList: [
-            PersonViewModel(person: Person(firstName: "Rene", lastName: "Hexel", isCompleted: true)),
-        ])
+        NavigationView {
+            PersonListView()
+        }
+        .environmentObject(ListViewModel())
     }
 }

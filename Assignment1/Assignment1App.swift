@@ -16,12 +16,16 @@ struct Assignment1App: App {
         PersonViewModel(person: Person(firstName: "Johnny", lastName: "Sin", isCompleted: true)),
         PersonViewModel(person: Person(firstName: "Jack", lastName: "Sparrow", isCompleted: false)),
         PersonViewModel(person: Person(firstName: "a", lastName: "b", isCompleted: false)),
-
     ]
+    
+    @StateObject var listViewModel: ListViewModel = ListViewModel()
     
     var body: some Scene {
         WindowGroup {
-            ContentView(personList: viewModel)
+            NavigationView {
+                PersonListView()
+            }
+            .environmentObject(listViewModel)
         }
     }
 }

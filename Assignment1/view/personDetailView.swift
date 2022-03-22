@@ -19,8 +19,9 @@ struct personDetailView: View {
 
 struct personDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(personList: [
-            PersonViewModel(person: Person(firstName: "Rene", lastName: "Hexel", isCompleted: true)),
-        ])
+        NavigationView {
+            PersonListView()
+        }
+        .environmentObject(ListViewModel())
     }
 }
