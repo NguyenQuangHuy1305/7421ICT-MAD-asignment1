@@ -23,7 +23,12 @@ struct PersonListView: View {
                 }
             }
         }
+//        .onDelete(perform: deleteItem)
     }
+    
+//    func deleteItem(indexSet: IndexSet) {
+//        PersonViewModel.remove(atOffsets: indexSet)
+//    }
 }
 
 struct MasterView_Previews: PreviewProvider {
