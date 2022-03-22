@@ -8,27 +8,32 @@
 import SwiftUI
 
 struct PersonListView: View {
-    var personList: [PersonViewModel]
+    @State var personList: [PersonViewModel]
 //    @State private var checked = false
 
     var body: some View {
-        List(personList) { personViewModel in
-            HStack {
-//                CheckBoxView(checked: $checked)
-//                Spacer()
-                Image(systemName: personViewModel.person.isCompleted ? "checkmark.square" : "square")
-                    .foregroundColor(personViewModel.person.isCompleted ? .green : .red)
-                NavigationLink("\(personViewModel.person.firstName)") {
-                    personDetailView(person: personViewModel)
+        List {
+            ForEach(personList) {personViewModel in
+                HStack {
+                    Image(systemName: personViewModel.person.isCompleted ? "checkmark.square" : "square")
+                        .foregroundColor(personViewModel.person.isCompleted ? .green : .red)
+                    NavigationLink("\(personViewModel.person.firstName)") {
+                        personDetailView(person: personViewModel)
+                    }
                 }
             }
+            .onDelete(perform: deletePerson)
         }
-//        .onDelete(perform: deleteItem)
+        .navigationBarItems(
+        leading: EditButton(),
+        trailing:
+            NavigationLink("Add", destination: AddView())
+        )
     }
     
-//    func deleteItem(indexSet: IndexSet) {
-//        PersonViewModel.remove(atOffsets: indexSet)
-//    }
+    func deletePerson(indexSet: IndexSet) {
+        personList.remove(atOffsets: indexSet)
+    }
 }
 
 struct MasterView_Previews: PreviewProvider {
