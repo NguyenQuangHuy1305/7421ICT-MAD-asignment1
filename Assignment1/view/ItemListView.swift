@@ -5,6 +5,7 @@
 //  Created by Nguyen Quang Huy on 21/3/2022.
 //
 
+import Foundation
 import SwiftUI
 
 struct ItemListView: View {
@@ -12,12 +13,17 @@ struct ItemListView: View {
 
     var body: some View {
         List {
-            ForEach(listViewModel.itemList) {itemList in
+            ForEach(listViewModel.itemList) {item in
                 HStack {
-                    Image(systemName: itemList.item.isCompleted ? "checkmark.square" : "square")
-                        .foregroundColor(itemList.item.isCompleted ? .green : .red)
-                    NavigationLink("\(itemList.item.itemName)") {
-                        itemDetailView(item: itemList)
+                    Image(systemName: item.isCompleted ? "checkmark.square" : "square")
+                        .foregroundColor(item.isCompleted ? .green : .red)
+                    NavigationLink("\(item.itemName)") {
+                        itemDetailView(item: item)
+                    }
+                }
+                .onTapGesture {
+                    withAnimation(.linear) {
+                        
                     }
                 }
             }

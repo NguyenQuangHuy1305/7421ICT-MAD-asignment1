@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct itemDetailView: View {
-    var item: ItemViewModel
+    var item: Item
     
     var body: some View {
         VStack {
