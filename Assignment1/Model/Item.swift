@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Person: Identifiable {
+struct Item: Identifiable {
     var id = UUID()
-    var firstName: String
-    var lastName: String
+    var itemName: String
+    var itemDesc: String
     var isCompleted: Bool
 }

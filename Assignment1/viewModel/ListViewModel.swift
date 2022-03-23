@@ -8,7 +8,7 @@
 import Foundation
 
 class ListViewModel: ObservableObject {
-    @Published var personList: [PersonViewModel] = []
+    @Published var itemList: [ItemViewModel] = []
     
     init() {
         getPeople()
@@ -16,21 +16,21 @@ class ListViewModel: ObservableObject {
     
     func getPeople() {
         let newPeople = [
-            PersonViewModel(person: Person(firstName: "John", lastName: "Smith", isCompleted: true)),
-            PersonViewModel(person: Person(firstName: "Wu", lastName: "Liuqi", isCompleted: true)),
-            PersonViewModel(person: Person(firstName: "Huy", lastName: "Nguyen", isCompleted: true)),
-            PersonViewModel(person: Person(firstName: "Johnny", lastName: "Sin", isCompleted: true)),
-            PersonViewModel(person: Person(firstName: "Jack", lastName: "Sparrow", isCompleted: false)),
-            PersonViewModel(person: Person(firstName: "a", lastName: "b", isCompleted: false)),
+            ItemViewModel(item: Item(itemName: "John", itemDesc: "Smith", isCompleted: true)),
+            ItemViewModel(item: Item(itemName: "Wu", itemDesc: "Liuqi", isCompleted: true)),
+            ItemViewModel(item: Item(itemName: "Huy", itemDesc: "Nguyen", isCompleted: true)),
+            ItemViewModel(item: Item(itemName: "Johnny", itemDesc: "Sin", isCompleted: true)),
+            ItemViewModel(item: Item(itemName: "Jack", itemDesc: "Sparrow", isCompleted: false)),
+            ItemViewModel(item: Item(itemName: "a", itemDesc: "b", isCompleted: false)),
         ]
-        personList.append(contentsOf: newPeople)
+        itemList.append(contentsOf: newPeople)
     }
     
     func deletePerson(indexSet: IndexSet) {
-        personList.remove(atOffsets: indexSet)
+        itemList.remove(atOffsets: indexSet)
     }
     
     func movePerson(from: IndexSet, to: Int) {
-        personList.move(fromOffsets: from, toOffset: to)
+        itemList.move(fromOffsets: from, toOffset: to)
     }
 }

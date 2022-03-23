@@ -8,22 +8,13 @@
 import SwiftUI
 
 @main
-struct Assignment1App: App {
-    var viewModel = [
-        PersonViewModel(person: Person(firstName: "John", lastName: "Smith", isCompleted: true)),
-        PersonViewModel(person: Person(firstName: "Wu", lastName: "Liuqi", isCompleted: true)),
-        PersonViewModel(person: Person(firstName: "Huy", lastName: "Nguyen", isCompleted: true)),
-        PersonViewModel(person: Person(firstName: "Johnny", lastName: "Sin", isCompleted: true)),
-        PersonViewModel(person: Person(firstName: "Jack", lastName: "Sparrow", isCompleted: false)),
-        PersonViewModel(person: Person(firstName: "a", lastName: "b", isCompleted: false)),
-    ]
-    
+struct Assignment1App: App {    
     @StateObject var listViewModel: ListViewModel = ListViewModel()
     
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                PersonListView()
+                ItemListView()
             }
             .environmentObject(listViewModel)
         }

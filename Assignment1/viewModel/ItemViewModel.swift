@@ -7,12 +7,14 @@
 
 import Foundation
 
-struct PersonViewModel: Identifiable {
-    var person: Person
-    var id: UUID{person.id}
+struct ItemViewModel: Identifiable {
+    var item: Item
+    var id: UUID{item.id}
+    var itemDesc: String{item.itemDesc}
     
+//    all logical modification on Item must be made here
     var fullName: String {
-        person.firstName + " " + person.lastName
+        item.itemName + " " + item.itemDesc
     }
 }
 

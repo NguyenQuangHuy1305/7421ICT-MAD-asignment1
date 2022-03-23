@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct PersonListView: View {
+struct ItemListView: View {
     @EnvironmentObject var listViewModel: ListViewModel
 
     var body: some View {
         List {
-            ForEach(listViewModel.personList) {personViewModel in
+            ForEach(listViewModel.itemList) {itemViewModel in
                 HStack {
-                    Image(systemName: personViewModel.person.isCompleted ? "checkmark.square" : "square")
-                        .foregroundColor(personViewModel.person.isCompleted ? .green : .red)
-                    NavigationLink("\(personViewModel.person.firstName)") {
-                        personDetailView(person: personViewModel)
+                    Image(systemName: itemViewModel.item.isCompleted ? "checkmark.square" : "square")
+                        .foregroundColor(itemViewModel.item.isCompleted ? .green : .red)
+                    NavigationLink("\(itemViewModel.item.itemName)") {
+                        itemDetailView(item: itemViewModel)
                     }
                 }
             }
@@ -35,7 +35,7 @@ struct PersonListView: View {
 struct MasterView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PersonListView()
+            ItemListView()
         }
         .environmentObject(ListViewModel())
     }

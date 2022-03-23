@@ -7,20 +7,20 @@
 
 import SwiftUI
 
-struct personDetailView: View {
-    var person: PersonViewModel
+struct itemDetailView: View {
+    var item: ItemViewModel
     
     var body: some View {
         VStack {
-            Text("ID: \(person.id)!")
+            Text("Item Description: \(item.itemDesc)")
         }
     }
 }
 
-struct personDetailView_Previews: PreviewProvider {
+struct itemDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PersonListView()
+            ItemListView()
         }
         .environmentObject(ListViewModel())
     }
