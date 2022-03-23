@@ -11,8 +11,9 @@ struct ItemViewModel: Identifiable {
     var item: Item
     var id: UUID{item.id}
     var itemDesc: String{item.itemDesc}
+    var isCompleted: Bool{item.isCompleted}
     
-//    all logical modification on Item must be made here
+//    all logical modification on Item must be made here, this part might be useless atm but might probably be useful in near future
     var fullName: String {
         item.itemName + " " + item.itemDesc
     }

@@ -21,13 +21,13 @@ struct ItemListView: View {
                     }
                 }
             }
-            .onDelete(perform: listViewModel.deletePerson)
-            .onMove(perform: listViewModel.movePerson)
+            .onDelete(perform: listViewModel.deleteItem)
+            .onMove(perform: listViewModel.moveItem)
         }
         .navigationBarItems(
         leading: EditButton(),
         trailing:
-            NavigationLink("Add", destination: AddView())
+            NavigationLink("[+]", destination: AddView())
         )
     }
 }

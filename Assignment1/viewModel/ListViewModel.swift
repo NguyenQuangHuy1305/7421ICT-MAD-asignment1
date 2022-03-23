@@ -8,6 +8,7 @@
 import Foundation
 
 class ListViewModel: ObservableObject {
+    
     @Published var itemList: [ItemViewModel] = []
     
     init() {
@@ -15,7 +16,7 @@ class ListViewModel: ObservableObject {
     }
     
     func getPeople() {
-        let newPeople = [
+        let newItem = [
             ItemViewModel(item: Item(itemName: "John", itemDesc: "Smith", isCompleted: true)),
             ItemViewModel(item: Item(itemName: "Wu", itemDesc: "Liuqi", isCompleted: true)),
             ItemViewModel(item: Item(itemName: "Huy", itemDesc: "Nguyen", isCompleted: true)),
@@ -23,14 +24,19 @@ class ListViewModel: ObservableObject {
             ItemViewModel(item: Item(itemName: "Jack", itemDesc: "Sparrow", isCompleted: false)),
             ItemViewModel(item: Item(itemName: "a", itemDesc: "b", isCompleted: false)),
         ]
-        itemList.append(contentsOf: newPeople)
+        itemList.append(contentsOf: newItem)
     }
     
-    func deletePerson(indexSet: IndexSet) {
+    func deleteItem(indexSet: IndexSet) {
         itemList.remove(atOffsets: indexSet)
     }
     
-    func movePerson(from: IndexSet, to: Int) {
+    func moveItem(from: IndexSet, to: Int) {
         itemList.move(fromOffsets: from, toOffset: to)
+    }
+    
+    func addItem(itemNameFieldText: String, itemDescFieldText: String) {
+        let newItem = ItemViewModel(item: Item(itemName: itemNameFieldText, itemDesc: itemDescFieldText, isCompleted: false))
+        itemList.append(newItem)
     }
 }
