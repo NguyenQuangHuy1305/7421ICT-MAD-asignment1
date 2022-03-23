@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 
+// this is the CRUD controller
+
 class ListViewModel: ObservableObject {
     
     @Published var itemList: [Item] = []
@@ -42,8 +44,10 @@ class ListViewModel: ObservableObject {
     }
     
     func updateItem(item: Item) {
+        // this part get the 1st index of the item array which was passed in (from somewhere), however I'll only pass 1 item in, so the bow if will always be correct
+        // the main point is to get the pressed item's index, so that I will know which item to update
         if let index = itemList.firstIndex (where: {$0.id == item.id}) {
-            itemList[index] = Item(itemName: item.itemName, itemDesc: item.itemDesc, isCompleted: !item.isCompleted)
+            itemList[index] = item.updateComplete()
         }
     }
 }

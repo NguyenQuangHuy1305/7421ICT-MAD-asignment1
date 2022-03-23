@@ -1,40 +1,37 @@
+////
+////  PersonViewModel.swift
+////  Assignment1
+////
+////  Created by Nguyen Quang Huy on 21/3/2022.
+////
 //
-//  PersonViewModel.swift
-//  Assignment1
+//import Foundation
 //
-//  Created by Nguyen Quang Huy on 21/3/2022.
+//struct ItemViewModel: Identifiable {
+//    var item: Item
+//    var id: UUID{item.id}
+//    var itemName: String{item.itemName}
+//    var itemDesc: String{item.itemDesc}
+//    var isCompleted: Bool{item.isCompleted}
+////
+////    }
 //
-
-import Foundation
-
-struct ItemViewModel: Identifiable {
-    var item: Item
-    var id: UUID{item.id}
-    var itemName: String{item.itemName}
-    var itemDesc: String{item.itemDesc}
-    var isCompleted: Bool{item.isCompleted}
-    
-//    init(id: String = UUID().uuidString, itemName: String, itemDesc: String, isCompleted: Bool) {
-//        self.id = id
-//
+////    all logical modification on Item must be made here, this part might be useless atm but might probably be useful in near future
+//    var fullName: String {
+//        item.itemName + " " + item.itemDesc
 //    }
-    
-//    all logical modification on Item must be made here, this part might be useless atm but might probably be useful in near future
-    var fullName: String {
-        item.itemName + " " + item.itemDesc
-    }
-}
-
-//struct PersonListViewModel {
-//
-//    var items: [Person] = []
-//
-//    func addNewItem(item: Person) {
-//        items.append(item)
-//    }
-//
-//    func deleteItem(atIndex index: Int) {
-//        items.remove(at: index)
-//    }
-//
 //}
+//
+////struct PersonListViewModel {
+////
+////    var items: [Person] = []
+////
+////    func addNewItem(item: Person) {
+////        items.append(item)
+////    }
+////
+////    func deleteItem(atIndex index: Int) {
+////        items.remove(at: index)
+////    }
+////
+////}

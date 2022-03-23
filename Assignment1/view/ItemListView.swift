@@ -21,9 +21,10 @@ struct ItemListView: View {
                         itemDetailView(item: item)
                     }
                 }
+                // when tapped, call updateItem
                 .onTapGesture {
                     withAnimation(.linear) {
-                        
+                        listViewModel.updateItem(item: item)
                     }
                 }
             }
