@@ -14,6 +14,9 @@ struct AddView: View {
     @State var itemNameFieldText: String = ""
     @State var itemDescFieldText: String = ""
     
+    @State var alertTitle: String = ""
+    @State var showAlert: Bool = false
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -42,11 +45,35 @@ struct AddView: View {
         }
         .padding(10.0)
         .navigationTitle("Add an item")
+        .alert(isPresented: $showAlert, content: getAlert)
     }
     
     func saveButtonPressed() {
-        listViewModel.addItem(itemNameFieldText: itemNameFieldText, itemDescFieldText: itemDescFieldText)
-        presentationMode.wrappedValue.dismiss()
+        if textsAreAppropriate() {
+            listViewModel.addItem(itemNameFieldText: itemNameFieldText, itemDescFieldText: itemDescFieldText)
+            presentationMode.wrappedValue.dismiss()
+        }
+    }
+    
+    func textsAreAppropriate() -> Bool {
+        if itemNameFieldText.count == 0 && itemDescFieldText.count == 0 {
+            alertTitle = "Item name and Item description must not be blank"
+            showAlert.toggle()
+            return false
+        } else if itemNameFieldText.count == 0 {
+            alertTitle = "Item name must not be blank"
+            showAlert.toggle()
+            return false
+        } else if itemDescFieldText.count == 0 {
+            alertTitle = "Item description must not be blank"
+            showAlert.toggle()
+            return false
+        }
+        return true
+    }
+    
+    func getAlert() -> Alert {
+        return Alert(title: Text(alertTitle))
     }
 }
 

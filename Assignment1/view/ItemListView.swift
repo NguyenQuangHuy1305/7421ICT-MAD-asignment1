@@ -12,12 +12,12 @@ struct ItemListView: View {
 
     var body: some View {
         List {
-            ForEach(listViewModel.itemList) {itemViewModel in
+            ForEach(listViewModel.itemList) {itemList in
                 HStack {
-                    Image(systemName: itemViewModel.item.isCompleted ? "checkmark.square" : "square")
-                        .foregroundColor(itemViewModel.item.isCompleted ? .green : .red)
-                    NavigationLink("\(itemViewModel.item.itemName)") {
-                        itemDetailView(item: itemViewModel)
+                    Image(systemName: itemList.item.isCompleted ? "checkmark.square" : "square")
+                        .foregroundColor(itemList.item.isCompleted ? .green : .red)
+                    NavigationLink("\(itemList.item.itemName)") {
+                        itemDetailView(item: itemList)
                     }
                 }
             }
