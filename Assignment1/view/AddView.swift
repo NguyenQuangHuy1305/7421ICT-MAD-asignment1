@@ -9,10 +9,11 @@ import SwiftUI
 
 struct AddView: View {
     
+    // need this to use presentationmode.wrappedvalue.dismiss(), which is the back button
     @Environment(\.presentationMode) var presentationMode
+    
     @EnvironmentObject var listViewModel: ListViewModel
     @State var itemNameFieldText: String = ""
-    @State var itemDescFieldText: String = ""
     
     @State var alertTitle: String = ""
     @State var showAlert: Bool = false
@@ -21,12 +22,6 @@ struct AddView: View {
         ScrollView {
             VStack {
                 TextField("Item name here...", text: $itemNameFieldText)
-                    .padding(.horizontal)
-                    .frame(height: 55)
-                    .background(Color(UIColor.secondarySystemBackground))
-                    .cornerRadius(10)
-                
-                TextField("Item description here...", text: $itemDescFieldText)
                     .padding(.horizontal)
                     .frame(height: 55)
                     .background(Color(UIColor.secondarySystemBackground))
@@ -50,22 +45,15 @@ struct AddView: View {
     
     func saveButtonPressed() {
         if textsAreAppropriate() {
-            listViewModel.addItem(itemNameFieldText: itemNameFieldText, itemDescFieldText: itemDescFieldText)
+            listViewModel.addItem(itemNameFieldText: itemNameFieldText)
+            // this is the function to go back to itemListView after adding an item
             presentationMode.wrappedValue.dismiss()
         }
     }
     
     func textsAreAppropriate() -> Bool {
-        if itemNameFieldText.count == 0 && itemDescFieldText.count == 0 {
-            alertTitle = "Item name and Item description must not be blank"
-            showAlert.toggle()
-            return false
-        } else if itemNameFieldText.count == 0 {
+        if itemNameFieldText.count == 0 {
             alertTitle = "Item name must not be blank"
-            showAlert.toggle()
-            return false
-        } else if itemDescFieldText.count == 0 {
-            alertTitle = "Item description must not be blank"
             showAlert.toggle()
             return false
         }

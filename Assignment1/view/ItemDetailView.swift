@@ -14,7 +14,7 @@ struct itemDetailView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text("Item Description: \(item.itemDesc)")
+//                Text("Item Description: \(item.itemDesc)")
             }
             // 
             Button(action: itemDetailViewTest, label: {

@@ -1,14 +1,13 @@
 //
-//  MasterView.swift
+//  ToDoListView.swift
 //  Assignment1
 //
-//  Created by Nguyen Quang Huy on 21/3/2022.
+//  Created by Nguyen Quang Huy on 26/3/2022.
 //
 
-import Foundation
 import SwiftUI
 
-struct ItemListView: View {
+struct ToDoListView: View {
     @EnvironmentObject var listViewModel: ListViewModel
 
     var body: some View {
@@ -49,11 +48,9 @@ struct ItemListView: View {
     }
 }
 
-struct MasterView_Previews: PreviewProvider {
+
+struct ToDoListView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            ItemListView()
-        }
-        .environmentObject(ListViewModel())
+        ToDoListView()
     }
 }

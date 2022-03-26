@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-// this is the CRUD controller
+// this is the CRUD controller, is where I store the innit function to seed data, and CRUD funcs
 
 class ListViewModel: ObservableObject {
     
@@ -17,12 +17,12 @@ class ListViewModel: ObservableObject {
     init() {
         getPeople()
     }
-    
+
     func getPeople() {
         let newItem = [
-            Item(itemName: "John", itemDesc: "Smith", isCompleted: true),
-            Item(itemName: "Wu", itemDesc: "Liuqi", isCompleted: true),
-            Item(itemName: "Huy", itemDesc: "Nguyen", isCompleted: true),
+            Item(itemName: "John", isCompleted: true),
+            Item(itemName: "Wu", isCompleted: true),
+            Item(itemName: "Huy", isCompleted: true),
         ]
         itemList.append(contentsOf: newItem)
     }
@@ -35,8 +35,8 @@ class ListViewModel: ObservableObject {
         itemList.move(fromOffsets: from, toOffset: to)
     }
     
-    func addItem(itemNameFieldText: String, itemDescFieldText: String) {
-        let newItem = Item(itemName: itemNameFieldText, itemDesc: itemDescFieldText, isCompleted: false)
+    func addItem(itemNameFieldText: String) {
+        let newItem = Item(itemName: itemNameFieldText, isCompleted: false)
         itemList.append(newItem)
     }
     

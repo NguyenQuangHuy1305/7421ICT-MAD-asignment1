@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import Assignment1
+@testable import Checklist
 
 class Assignment1Tests: XCTestCase {
 
