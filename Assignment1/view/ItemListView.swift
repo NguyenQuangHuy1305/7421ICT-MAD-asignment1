@@ -12,30 +12,38 @@ struct ItemListView: View {
     @EnvironmentObject var listViewModel: ListViewModel
 
     var body: some View {
-        List {
-            ForEach(listViewModel.itemList) {item in
-                HStack {
-                    Image(systemName: item.isCompleted ? "checkmark.square" : "square")
-                        .foregroundColor(item.isCompleted ? .green : .red)
-                    NavigationLink("\(item.itemName)") {
-                        itemDetailView(item: item)
+        ZStack {
+            if listViewModel.itemList.isEmpty {
+                NoItemsView()
+            } else {
+                List {
+                    ForEach(listViewModel.itemList) {item in
+                        HStack {
+                            // the image for the checkmark
+                            Image(systemName: item.isCompleted ? "checkmark.square" : "square")
+                                .foregroundColor(item.isCompleted ? .green : .red)
+                            NavigationLink("\(item.itemName)") {
+                                itemDetailView(item: item)
+                            }
+                        }
+                        // when tapped, call updateItem
+                        .onTapGesture {
+                            withAnimation(.linear) {
+                                listViewModel.updateItem(item: item)
+                            }
+                        }
                     }
+                    .onDelete(perform: listViewModel.deleteItem)
+                    .onMove(perform: listViewModel.moveItem)
                 }
-                // when tapped, call updateItem
-                .onTapGesture {
-                    withAnimation(.linear) {
-                        listViewModel.updateItem(item: item)
-                    }
-                }
+                .navigationBarItems(
+                leading: EditButton(),
+                trailing:
+                    NavigationLink("[+]", destination: AddView())
+                )
+                .navigationTitle("Todo list")
             }
-            .onDelete(perform: listViewModel.deleteItem)
-            .onMove(perform: listViewModel.moveItem)
         }
-        .navigationBarItems(
-        leading: EditButton(),
-        trailing:
-            NavigationLink("[+]", destination: AddView())
-        )
     }
 }
 

@@ -8,12 +8,30 @@
 import SwiftUI
 
 struct itemDetailView: View {
+    @EnvironmentObject var listViewModel: ListViewModel
     var item: Item
     
     var body: some View {
-        VStack {
-            Text("Item Description: \(item.itemDesc)")
+        ScrollView {
+            VStack {
+                Text("Item Description: \(item.itemDesc)")
+            }
+            // 
+            Button(action: itemDetailViewTest, label: {
+                Text("smthng".uppercased())
+                    .foregroundColor(.white)
+                    .font(.headline)
+                    .frame(height: 55)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.accentColor)
+                    .cornerRadius(10)
+            })
         }
+        .padding(10)
+    }
+    
+    func itemDetailViewTest() {
+        // this func doesn't do anything atm
     }
 }
 

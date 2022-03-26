@@ -15,7 +15,7 @@ struct Item: Identifiable {
     let itemDesc: String
     let isCompleted: Bool
     
-    // 2nd initializer, which has the option to pas in an id: String, used when update items, since we've already got the current id
+    // 2nd initializer, which has the option to pass in an id: String, used when update items, since we've already got the current id
     init(id: String = UUID().uuidString, itemName: String, itemDesc: String, isCompleted: Bool) {
         self.id = id
         self.itemName = itemName

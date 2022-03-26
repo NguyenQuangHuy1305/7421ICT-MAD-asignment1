@@ -23,9 +23,6 @@ class ListViewModel: ObservableObject {
             Item(itemName: "John", itemDesc: "Smith", isCompleted: true),
             Item(itemName: "Wu", itemDesc: "Liuqi", isCompleted: true),
             Item(itemName: "Huy", itemDesc: "Nguyen", isCompleted: true),
-            Item(itemName: "Johnny", itemDesc: "Sin", isCompleted: true),
-            Item(itemName: "Jack", itemDesc: "Sparrow", isCompleted: false),
-            Item(itemName: "a", itemDesc: "b", isCompleted: false),
         ]
         itemList.append(contentsOf: newItem)
     }
