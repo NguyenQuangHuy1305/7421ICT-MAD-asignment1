@@ -38,7 +38,7 @@ struct itemDetailView: View {
 struct itemDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ItemListView()
+//            ToDoListView()
         }
         .environmentObject(ListViewModel())
     }

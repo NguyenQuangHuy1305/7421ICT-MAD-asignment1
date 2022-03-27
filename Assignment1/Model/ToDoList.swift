@@ -5,10 +5,17 @@
 //  Created by Nguyen Quang Huy on 26/3/2022.
 //
 
+import Foundation
+
 struct ToDoList: Identifiable {
-    
-    // 1st initializer, which will automatically generate id
+        
     let id: String
     let todolistName: String
-    let todolistItems: [Item] = []
+    var todolistItems: [Item] = []
+    
+    init(id: String = UUID().uuidString, todolistName: String, todolistItems: [Item]) {
+        self.id = id
+        self.todolistName = todolistName
+        self.todolistItems = todolistItems
+    }
 }

@@ -10,49 +10,53 @@ import SwiftUI
 
 struct ItemListView: View {
     @EnvironmentObject var listViewModel: ListViewModel
+    @EnvironmentObject var todolistviewmodel: ToDoListViewModel
+    @State var todolistItems: [Item]
 
     var body: some View {
         ZStack {
-            if listViewModel.itemList.isEmpty {
+            if todolistItems.isEmpty {
                 NoItemsView()
             } else {
                 List {
-                    ForEach(listViewModel.itemList) {item in
+                    ForEach(todolistItems) {item in
                         HStack {
                             // the image for the checkmark
                             Image(systemName: item.isCompleted ? "checkmark.square" : "square")
                                 .foregroundColor(item.isCompleted ? .green : .red)
-                            NavigationLink("\(item.itemName)") {
-                                itemDetailView(item: item)
-                            }
+                            Text("\(item.itemName)")
                         }
                         // when tapped, call updateItem
-                        .onTapGesture {
-                            withAnimation(.linear) {
-                                listViewModel.updateItem(item: item)
-                            }
-                        }
+//                        .onTapGesture {
+//                            withAnimation(.linear) {
+//                                listViewModel.updateItem(item: item)
+//                            }
+//                        }
                     }
-                    .onDelete(perform: listViewModel.deleteItem)
-                    .onMove(perform: listViewModel.moveItem)
+//                    .onDelete(perform: listViewModel.deleteItem)
+                    .onDelete(perform: {indexSet in
+                        todolistItems.remove(atOffsets: indexSet)
+                    })
+//                    .onMove(perform: listViewModel.moveItem)
                 }
                 .navigationBarItems(
-                // leading is the button on the left of the navigation bar
-                leading: EditButton(),
-                // trailing is the button on the right of the navigation var
-                trailing:
-                    NavigationLink("[+]", destination: AddView())
+                    // leading is the button on the left of the navigation bar
+                    leading: EditButton(),
+                    // trailing is the button on the right of the navigation var
+                    trailing:
+                        NavigationLink("[+]", destination: AddView())
                 )
                 .navigationTitle("Todo list")
             }
         }
     }
+    
 }
 
 struct MasterView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ItemListView()
+            ToDoListView()
         }
         .environmentObject(ListViewModel())
     }

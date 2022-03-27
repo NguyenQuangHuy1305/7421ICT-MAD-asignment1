@@ -17,7 +17,7 @@ struct NoItemsView: View {
                 NavigationLink(
                     destination: AddView(),
                     label: {
-                        Text("Add a new todo list")
+                        Text("Add a new item!")
                             .foregroundColor(.white)
                             .font(.headline)
                             .frame(height: 55)

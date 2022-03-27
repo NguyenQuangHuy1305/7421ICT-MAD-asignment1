@@ -13,6 +13,7 @@
 		6B05284227EEB9B70045DB35 /* NoItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05284127EEB9B60045DB35 /* NoItemsView.swift */; };
 		6B05284427EEDC150045DB35 /* ToDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05284327EEDC150045DB35 /* ToDoList.swift */; };
 		6B05284627EF21880045DB35 /* ToDoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05284527EF21880045DB35 /* ToDoListView.swift */; };
+		6B05284827EF23FB0045DB35 /* ToDoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05284727EF23FB0045DB35 /* ToDoListViewModel.swift */; };
 		6B111E5E27E0B5BB00BFB506 /* Assignment1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B111E5D27E0B5BB00BFB506 /* Assignment1App.swift */; };
 		6B111E6027E0B5BB00BFB506 /* ContentView(unused).swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B111E5F27E0B5BB00BFB506 /* ContentView(unused).swift */; };
 		6B111E6227E0B5BE00BFB506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B111E6127E0B5BE00BFB506 /* Assets.xcassets */; };
@@ -22,7 +23,7 @@
 		6B111E7B27E0B5BF00BFB506 /* Assignment1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B111E7A27E0B5BF00BFB506 /* Assignment1UITestsLaunchTests.swift */; };
 		6B70D24127E8347A00F91ED0 /* ItemViewModel(unused).swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B70D24027E8347A00F91ED0 /* ItemViewModel(unused).swift */; };
 		6B70D24427E8349100F91ED0 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B70D24327E8349100F91ED0 /* Item.swift */; };
-		6B70D2B827E89C7800F91ED0 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B70D2B727E89C7800F91ED0 /* ItemDetailView.swift */; };
+		6B70D2B827E89C7800F91ED0 /* ItemDetailView(unused).swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B70D2B727E89C7800F91ED0 /* ItemDetailView(unused).swift */; };
 		6B70D2BA27E89E9000F91ED0 /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B70D2B927E89E9000F91ED0 /* ItemListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		6B05284127EEB9B60045DB35 /* NoItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoItemsView.swift; sourceTree = "<group>"; };
 		6B05284327EEDC150045DB35 /* ToDoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoList.swift; sourceTree = "<group>"; };
 		6B05284527EF21880045DB35 /* ToDoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListView.swift; sourceTree = "<group>"; };
+		6B05284727EF23FB0045DB35 /* ToDoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewModel.swift; sourceTree = "<group>"; };
 		6B111E5A27E0B5BB00BFB506 /* Checklist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B111E5D27E0B5BB00BFB506 /* Assignment1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment1App.swift; sourceTree = "<group>"; };
 		6B111E5F27E0B5BB00BFB506 /* ContentView(unused).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView(unused).swift"; sourceTree = "<group>"; };
@@ -62,7 +64,7 @@
 		6B111E7A27E0B5BF00BFB506 /* Assignment1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment1UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6B70D24027E8347A00F91ED0 /* ItemViewModel(unused).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemViewModel(unused).swift"; sourceTree = "<group>"; };
 		6B70D24327E8349100F91ED0 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		6B70D2B727E89C7800F91ED0 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
+		6B70D2B727E89C7800F91ED0 /* ItemDetailView(unused).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemDetailView(unused).swift"; sourceTree = "<group>"; };
 		6B70D2B927E89E9000F91ED0 /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,6 +156,7 @@
 			children = (
 				6B70D24027E8347A00F91ED0 /* ItemViewModel(unused).swift */,
 				6B05283E27EA8B130045DB35 /* ListViewModel.swift */,
+				6B05284727EF23FB0045DB35 /* ToDoListViewModel.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -162,7 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				6B111E5F27E0B5BB00BFB506 /* ContentView(unused).swift */,
-				6B70D2B727E89C7800F91ED0 /* ItemDetailView.swift */,
+				6B70D2B727E89C7800F91ED0 /* ItemDetailView(unused).swift */,
 				6B70D2B927E89E9000F91ED0 /* ItemListView.swift */,
 				6B05284527EF21880045DB35 /* ToDoListView.swift */,
 				6B05283A27E9EA720045DB35 /* CheckBoxView(unused).swift */,
@@ -315,12 +318,13 @@
 				6B05283B27E9EA720045DB35 /* CheckBoxView(unused).swift in Sources */,
 				6B05284027EA9FBA0045DB35 /* AddView.swift in Sources */,
 				6B05284427EEDC150045DB35 /* ToDoList.swift in Sources */,
-				6B70D2B827E89C7800F91ED0 /* ItemDetailView.swift in Sources */,
+				6B70D2B827E89C7800F91ED0 /* ItemDetailView(unused).swift in Sources */,
 				6B05284227EEB9B70045DB35 /* NoItemsView.swift in Sources */,
 				6B05284627EF21880045DB35 /* ToDoListView.swift in Sources */,
 				6B70D24127E8347A00F91ED0 /* ItemViewModel(unused).swift in Sources */,
 				6B05283F27EA8B130045DB35 /* ListViewModel.swift in Sources */,
 				6B111E6027E0B5BB00BFB506 /* ContentView(unused).swift in Sources */,
+				6B05284827EF23FB0045DB35 /* ToDoListViewModel.swift in Sources */,
 				6B70D24427E8349100F91ED0 /* Item.swift in Sources */,
 				6B111E5E27E0B5BB00BFB506 /* Assignment1App.swift in Sources */,
 			);

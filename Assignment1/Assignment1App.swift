@@ -8,15 +8,19 @@
 import SwiftUI
 
 @main
-struct Assignment1App: App {    
-    @StateObject var listViewModel: ListViewModel = ListViewModel()
+struct Assignment1App: App {
     
+    // make the todolistviewmodel into an environmentobject
+    @StateObject var listViewModel: ListViewModel = ListViewModel()
+    @StateObject var todolistviewmodel: ToDoListViewModel = ToDoListViewModel()
+
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ItemListView()
+                ToDoListView()
             }
             .environmentObject(listViewModel)
+            .environmentObject(todolistviewmodel)
         }
     }
 }

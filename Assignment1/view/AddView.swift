@@ -12,8 +12,8 @@ struct AddView: View {
     // need this to use presentationmode.wrappedvalue.dismiss(), which is the back button
     @Environment(\.presentationMode) var presentationMode
     
-    @EnvironmentObject var listViewModel: ListViewModel
-    @State var itemNameFieldText: String = ""
+    @EnvironmentObject var todolistviewmodel: ToDoListViewModel
+    @State var todolistNameFieldText: String = ""
     
     @State var alertTitle: String = ""
     @State var showAlert: Bool = false
@@ -21,7 +21,7 @@ struct AddView: View {
     var body: some View {
         ScrollView {
             VStack {
-                TextField("Item name here...", text: $itemNameFieldText)
+                TextField("List name here...", text: $todolistNameFieldText)
                     .padding(.horizontal)
                     .frame(height: 55)
                     .background(Color(UIColor.secondarySystemBackground))
@@ -39,21 +39,21 @@ struct AddView: View {
             }
         }
         .padding(10.0)
-        .navigationTitle("Add an item")
+        .navigationTitle("Add a new Todo List")
         .alert(isPresented: $showAlert, content: getAlert)
     }
     
     func saveButtonPressed() {
         if textsAreAppropriate() {
-            listViewModel.addItem(itemNameFieldText: itemNameFieldText)
+            todolistviewmodel.addToDoList(todolistNameFieldText: todolistNameFieldText)
             // this is the function to go back to itemListView after adding an item
             presentationMode.wrappedValue.dismiss()
         }
     }
     
     func textsAreAppropriate() -> Bool {
-        if itemNameFieldText.count == 0 {
-            alertTitle = "Item name must not be blank"
+        if todolistNameFieldText.count == 0 {
+            alertTitle = "List name must not be blank"
             showAlert.toggle()
             return false
         }
