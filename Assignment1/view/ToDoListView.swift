@@ -17,9 +17,12 @@ struct ToDoListView: View {
                 NoItemsView()
             } else {
                 List {
-                    ForEach(todolistviewmodel.todoList) {list in
+                    ForEach($todolistviewmodel.todoList) {$list in
                         NavigationLink("\(list.todolistName)") {
-                            ItemListView(todolistItems: list.todolistItems)
+                            ItemListView(todolistItems: $list.todolistItems,
+                                         todolistItemsBackUp: list.todolistItems,
+                                         todolistName: list.todolistName
+                                        )
                         }
                     }
                     .onDelete(perform: todolistviewmodel.deleteToDoList)

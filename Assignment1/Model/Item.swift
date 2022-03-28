@@ -11,7 +11,7 @@ struct Item: Identifiable {
     
     let id: String
     let itemName: String
-    let isCompleted: Bool
+    var isCompleted: Bool
     
     // initializer, which has the option to either:
     //  - auto generate an id
