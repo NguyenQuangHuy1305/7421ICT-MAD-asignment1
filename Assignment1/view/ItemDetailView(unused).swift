@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct itemDetailView: View {
-    @EnvironmentObject var listViewModel: ListViewModel
+    @EnvironmentObject var listViewModel: ItemViewModel
     var item: Item
     
     var body: some View {
@@ -40,6 +40,6 @@ struct itemDetailView_Previews: PreviewProvider {
         NavigationView {
 //            ToDoListView()
         }
-        .environmentObject(ListViewModel())
+        .environmentObject(ItemViewModel())
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 
 // this is the CRUD controller, is where I store the innit function to seed data, and CRUD funcs
 
-class ListViewModel: ObservableObject {
+class ItemViewModel: ObservableObject {
     
     @Published var itemList: [Item] = []
     

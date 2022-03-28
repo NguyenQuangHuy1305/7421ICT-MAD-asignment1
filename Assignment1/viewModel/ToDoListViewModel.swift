@@ -34,11 +34,11 @@ class ToDoListViewModel: ObservableObject {
     }
 
     
-    func deleteItem(indexSet: IndexSet) {
+    func deleteToDoList(indexSet: IndexSet) {
         todoList.remove(atOffsets: indexSet)
     }
 
-    func moveItem(from: IndexSet, to: Int) {
+    func moveToDoList(from: IndexSet, to: Int) {
         todoList.move(fromOffsets: from, toOffset: to)
     }
 

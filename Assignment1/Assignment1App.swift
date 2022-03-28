@@ -11,7 +11,7 @@ import SwiftUI
 struct Assignment1App: App {
     
     // make the todolistviewmodel into an environmentobject
-    @StateObject var listViewModel: ListViewModel = ListViewModel()
+    @StateObject var itemViewModel: ItemViewModel = ItemViewModel()
     @StateObject var todolistviewmodel: ToDoListViewModel = ToDoListViewModel()
 
     var body: some Scene {
@@ -19,7 +19,7 @@ struct Assignment1App: App {
             NavigationView {
                 ToDoListView()
             }
-            .environmentObject(listViewModel)
+            .environmentObject(itemViewModel)
             .environmentObject(todolistviewmodel)
         }
     }

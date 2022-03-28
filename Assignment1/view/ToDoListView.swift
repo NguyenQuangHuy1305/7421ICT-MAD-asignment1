@@ -22,8 +22,8 @@ struct ToDoListView: View {
                             ItemListView(todolistItems: list.todolistItems)
                         }
                     }
-                    .onDelete(perform: todolistviewmodel.deleteItem)
-                    .onMove(perform: todolistviewmodel.moveItem)
+                    .onDelete(perform: todolistviewmodel.deleteToDoList)
+                    .onMove(perform: todolistviewmodel.moveToDoList)
                 }
                 .navigationBarItems(
                     // leading is the button on the left of the navigation bar

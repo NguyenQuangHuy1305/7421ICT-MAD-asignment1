@@ -9,9 +9,8 @@ import Foundation
 import SwiftUI
 
 struct ItemListView: View {
-    @EnvironmentObject var listViewModel: ListViewModel
-    @EnvironmentObject var todolistviewmodel: ToDoListViewModel
-    @State var todolistItems: [Item]
+    @EnvironmentObject var itemViewModel: ItemViewModel
+    @State var todolistItems: [Item] // this thing might need to be observed object
 
     var body: some View {
         ZStack {
@@ -46,7 +45,7 @@ struct ItemListView: View {
                     trailing:
                         NavigationLink("[+]", destination: AddView())
                 )
-                .navigationTitle("Todo list")
+                .navigationTitle("Item list")
             }
         }
     }
@@ -58,6 +57,6 @@ struct MasterView_Previews: PreviewProvider {
         NavigationView {
             ToDoListView()
         }
-        .environmentObject(ListViewModel())
+        .environmentObject(ItemViewModel())
     }
 }
