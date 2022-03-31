@@ -14,10 +14,24 @@ class testItemListViewModel: XCTestCase {
         let testItem1 = Item(name: "testItem1", isChecked: false)
         let testItem2 = Item(name: "testItem1", isChecked: false)
 
-        let itemListViewModel = ItemListViewModel(name: "Todo List test", items: [ItemViewModel(item: testItem1),
-                                                                                  ItemViewModel(item: testItem2)])
+        let itemListViewModel = ItemListViewModel(name: "Todo List test",
+                                                  items: [ItemViewModel(item: testItem1),
+                                                          ItemViewModel(item: testItem2)])
         XCTAssertNotNil(itemListViewModel, "ItemListViewModel is not nil")
         XCTAssertEqual(itemListViewModel.name, "Todo List test")
     }
     
+    func testFuncResetItemItemListViewModel () {
+        let testItem1 = Item(name: "testItem1", isChecked: true)
+        let testItem2 = Item(name: "testItem1", isChecked: true)
+
+        let itemListViewModel = ItemListViewModel(name: "Todo List test",
+                                                  items: [ItemViewModel(item: testItem1),
+                                                          ItemViewModel(item: testItem2)])
+        itemListViewModel.resetItems()
+
+        for i in 0..<(itemListViewModel.items.count) {
+            XCTAssertEqual(itemListViewModel.items[i].item.isChecked, false)
+        }
+    }
 }

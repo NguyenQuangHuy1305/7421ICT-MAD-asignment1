@@ -25,6 +25,7 @@
 		6B502C8427F3D60800962FE0 /* testItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B502C8327F3D60800962FE0 /* testItem.swift */; };
 		6B650D4227F4CEA300DC3B86 /* testItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B650D4127F4CEA300DC3B86 /* testItemViewModel.swift */; };
 		6B650D4427F4CF0300DC3B86 /* testItemListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B650D4327F4CF0300DC3B86 /* testItemListViewModel.swift */; };
+		6B650D4627F55B9700DC3B86 /* testTodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B650D4527F55B9700DC3B86 /* testTodoListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		6B502C8327F3D60800962FE0 /* testItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testItem.swift; sourceTree = "<group>"; };
 		6B650D4127F4CEA300DC3B86 /* testItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testItemViewModel.swift; sourceTree = "<group>"; };
 		6B650D4327F4CF0300DC3B86 /* testItemListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testItemListViewModel.swift; sourceTree = "<group>"; };
+		6B650D4527F55B9700DC3B86 /* testTodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testTodoListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				6B502C8327F3D60800962FE0 /* testItem.swift */,
 				6B650D4127F4CEA300DC3B86 /* testItemViewModel.swift */,
 				6B650D4327F4CF0300DC3B86 /* testItemListViewModel.swift */,
+				6B650D4527F55B9700DC3B86 /* testTodoListViewModel.swift */,
 			);
 			path = ViewModelsTests;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				6B650D4227F4CEA300DC3B86 /* testItemViewModel.swift in Sources */,
 				6B650D4427F4CF0300DC3B86 /* testItemListViewModel.swift in Sources */,
 				6B502C8427F3D60800962FE0 /* testItem.swift in Sources */,
+				6B650D4627F55B9700DC3B86 /* testTodoListViewModel.swift in Sources */,
 				6B502C5727F287E300962FE0 /* ViewModelsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,7 +480,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = MAD.ViewModels;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ViewModels;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -504,7 +508,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = MAD.ViewModels;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ViewModels;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
