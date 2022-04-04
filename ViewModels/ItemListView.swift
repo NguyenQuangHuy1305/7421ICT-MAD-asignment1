@@ -14,33 +14,34 @@ struct ItemListView: View {
     @Environment(\.editMode) var editMode
 
     var body: some View {
-        List {
-            Section {
-                if editMode?.wrappedValue == .active {
-                    HStack {
-                        TextField("New Todo list name here", text: $viewModel.todolistName)
-                            .font(.subheadline)
-                        Button("Rename", action: viewModel.renametodolist)
-                    }
-                }
+        
+        if editMode?.wrappedValue == .active {
+            HStack {
+                TextField("New Todo list name here", text: $viewModel.todolistName)
+                    .font(.subheadline)
+                Button("Rename", action: viewModel.renametodolist)
             }
-            
-            Section {
-                // loop through a an array of items, each of them is an ItemViewModel
-                ForEach(viewModel.items) {item in
-                    ItemView(viewModel: item)
-                }
-                .onDelete(perform: viewModel.deleteItem)
-                .onMove(perform: viewModel.moveItem)
-                
-                // add button, which add an Item to viewModel.items
-                HStack {
-                    TextField("New item name here", text: $viewModel.itemName)
-                        .font(.subheadline)
-                    Button("Add", action: viewModel.addItem)
-                }
-            }
+            .padding(20)
+            .cornerRadius(10)
         }
+        
+        List {
+            // loop through a an array of items, each of them is an ItemViewModel
+            ForEach(viewModel.items) {item in
+                ItemView(viewModel: item)
+            }
+            .onDelete(perform: viewModel.deleteItem)
+            .onMove(perform: viewModel.moveItem)
+            
+            // add button, which add an Item to viewModel.items
+        }
+        
+        HStack {
+            TextField("New item name here", text: $viewModel.itemName)
+                .font(.subheadline)
+            Button("Add", action: viewModel.addItem)
+        }
+        
         .navigationBarItems(
             // leading is the button on the left of the navigation bar
             leading: EditButton(),
