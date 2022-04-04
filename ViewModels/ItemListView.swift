@@ -18,11 +18,13 @@ struct ItemListView: View {
         if editMode?.wrappedValue == .active {
             HStack {
                 TextField("New Todo list name here", text: $viewModel.todolistName)
+                    .padding()
                     .font(.subheadline)
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(10)
                 Button("Rename", action: viewModel.renametodolist)
             }
-            .padding(20)
-            .cornerRadius(10)
+            .padding(18)
         }
         
         List {
@@ -35,13 +37,6 @@ struct ItemListView: View {
             
             // add button, which add an Item to viewModel.items
         }
-        
-        HStack {
-            TextField("New item name here", text: $viewModel.itemName)
-                .font(.subheadline)
-            Button("Add", action: viewModel.addItem)
-        }
-        
         .navigationBarItems(
             // leading is the button on the left of the navigation bar
             leading: EditButton(),
@@ -59,6 +54,18 @@ struct ItemListView: View {
             }
         )
         .navigationTitle(viewModel.name)
+        
+        if editMode?.wrappedValue == .active {
+            HStack {
+                TextField("New item name here", text: $viewModel.itemName)
+                    .padding()
+                    .font(.subheadline)
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(10)
+                Button("Add", action: viewModel.addItem)
+            }
+            .padding(18)
+        }
     }
 }
 
