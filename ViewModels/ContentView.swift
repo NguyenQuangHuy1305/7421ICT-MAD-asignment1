@@ -26,7 +26,19 @@ struct ContentView: View {
                             name: "Item 2",
                             isChecked: true
                         )
-                    )
+                    ),
+                    ItemViewModel(
+                        item: Item(
+                            name: "Item 4",
+                            isChecked: true
+                        )
+                    ),
+                    ItemViewModel(
+                        item: Item(
+                            name: "Item 2",
+                            isChecked: false
+                        )
+                    ),
                 ]
             ),
             ItemListViewModel(

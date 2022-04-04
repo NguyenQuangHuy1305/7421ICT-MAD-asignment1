@@ -94,6 +94,7 @@ class ItemListViewModel: ObservableObject, Identifiable {
     }
     
     func renametodolist() {
+        print("test")
         data.name = todolistName
         todolistName = ""
     }

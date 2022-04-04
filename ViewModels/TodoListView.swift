@@ -8,6 +8,15 @@
 import SwiftUI
 import Foundation
 
+struct TodoListLabel: View {
+    @ObservedObject var viewModel: ItemListViewModel
+    
+    var body: some View{
+        Text(viewModel.name)
+    }
+}
+
+
 struct TodoListView: View {
     
     @ObservedObject var viewModel: TodoListViewModel
@@ -17,8 +26,13 @@ struct TodoListView: View {
             NavigationView {
                 List {
                     ForEach(viewModel.lists) {todolist in
-//                        NavigationLink("\(todolist.name)") {
+                        NavigationLink {
                             ItemListView(viewModel: todolist)
+                        } label: {
+                            TodoListLabel(viewModel: todolist)
+                        }
+//                        NavigationLink("\(todolist.name)") {
+//                            ItemListView(viewModel: todolist)
 //                        }
                     }
                     .onDelete(perform: viewModel.deleteTodoList)
