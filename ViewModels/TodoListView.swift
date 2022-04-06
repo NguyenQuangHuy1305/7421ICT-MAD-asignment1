@@ -36,7 +36,7 @@ struct TodoListView: View {
 //                        }
                     }
                     .onDelete(perform: viewModel.deleteTodoList)
-                    .onMove(perform: viewModel.moveToDoList)
+                    .onMove(perform: viewModel.moveTodoList)
                 }
                 .navigationBarItems(
                     // leading is the button on the left of the navigation bar

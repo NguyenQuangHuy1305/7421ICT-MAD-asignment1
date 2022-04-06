@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class ItemListViewModel: ObservableObject, Identifiable {
     
@@ -21,9 +22,12 @@ class ItemListViewModel: ObservableObject, Identifiable {
     }
     
     // this line is for the addItem func only
-    @Published var itemName: String = ""
+    @Published var itemNameFieldText: String = ""
     // this line is for the todolistrename func only
     @Published var todolistName: String = ""
+    
+    @Published var alertTitle: String = ""
+    @Published var showAlert: Bool = false
     
     // how does @Published and private even work together?
     @Published private var data: Data
@@ -87,16 +91,34 @@ class ItemListViewModel: ObservableObject, Identifiable {
         items.move(fromOffsets: from, toOffset: to)
     }
 
-    func addItem() {
-        let newItem = ItemViewModel(item: Item(name: itemName, isChecked: false))
+    func addItem(itemNameFieldText: String) {
+        let newItem = ItemViewModel(item: Item(name: itemNameFieldText, isChecked: false))
         items.append(newItem)
-        itemName = ""
+        self.itemNameFieldText = ""
     }
     
-    func renametodolist() {
-        print("test")
+    func renameTodolist() {
         data.name = todolistName
         todolistName = ""
+    }
+    
+    func addButtonPressed() {
+        if textsAreAppropriate() {
+            addItem(itemNameFieldText: itemNameFieldText)
+        }
+    }
+    
+    func textsAreAppropriate() -> Bool {
+        if itemNameFieldText.count == 0 {
+            alertTitle = "Item's name must not be blank"
+            showAlert.toggle()
+            return false
+        }
+        return true
+    }
+    
+    func getAlert() -> Alert {
+        return Alert(title: Text(alertTitle))
     }
 //
 //    func updateItem(item: Item) {

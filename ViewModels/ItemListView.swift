@@ -22,7 +22,7 @@ struct ItemListView: View {
                     .font(.subheadline)
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(10)
-                Button("Rename", action: viewModel.renametodolist)
+                Button("Rename", action: viewModel.renameTodolist)
             }
             .padding(18)
         }
@@ -54,15 +54,16 @@ struct ItemListView: View {
             }
         )
         .navigationTitle(viewModel.name)
+        .alert(isPresented: $viewModel.showAlert, content: viewModel.getAlert)
         
         if editMode?.wrappedValue == .active {
             HStack {
-                TextField("New item name here", text: $viewModel.itemName)
+                TextField("New item name here", text: $viewModel.itemNameFieldText)
                     .padding()
                     .font(.subheadline)
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(10)
-                Button("Add", action: viewModel.addItem)
+                Button("Add", action: viewModel.addButtonPressed)
             }
             .padding(18)
         }
