@@ -26,6 +26,7 @@
 		6B650D4227F4CEA300DC3B86 /* testItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B650D4127F4CEA300DC3B86 /* testItemViewModel.swift */; };
 		6B650D4427F4CF0300DC3B86 /* testItemListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B650D4327F4CF0300DC3B86 /* testItemListViewModel.swift */; };
 		6B650D4627F55B9700DC3B86 /* testTodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B650D4527F55B9700DC3B86 /* testTodoListViewModel.swift */; };
+		6BEDFFE927FDBC6900E5420A /* Icons in Resources */ = {isa = PBXBuildFile; fileRef = 6BEDFFE827FDBC6900E5420A /* Icons */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		6B650D4127F4CEA300DC3B86 /* testItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testItemViewModel.swift; sourceTree = "<group>"; };
 		6B650D4327F4CF0300DC3B86 /* testItemListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testItemListViewModel.swift; sourceTree = "<group>"; };
 		6B650D4527F55B9700DC3B86 /* testTodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testTodoListViewModel.swift; sourceTree = "<group>"; };
+		6BEDFFE827FDBC6900E5420A /* Icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Icons; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				6B502C4527F287DF00962FE0 /* ViewModelsApp.swift */,
 				6B502C4727F287DF00962FE0 /* ContentView.swift */,
 				6B502C4927F287E200962FE0 /* Assets.xcassets */,
+				6BEDFFE827FDBC6900E5420A /* Icons */,
 				6B502C4B27F287E200962FE0 /* Preview Content */,
 				6B502C6F27F287F100962FE0 /* Item.swift */,
 				6B502C7127F2881000962FE0 /* ItemViewModel.swift */,
@@ -267,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BEDFFE927FDBC6900E5420A /* Icons in Resources */,
 				6B502C4D27F287E200962FE0 /* Preview Assets.xcassets in Resources */,
 				6B502C4A27F287E200962FE0 /* Assets.xcassets in Resources */,
 			);

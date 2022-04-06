@@ -93,5 +93,26 @@ class testItemListViewModel: XCTestCase {
         XCTAssertEqual(todoListViewModel.lists[0].name, "Renamed Todo List")
     }
     
+    func test_textAreAppropriate_ItemListViewModel () {
+        let testItem1 = Item(name: "testItem1", isChecked: false)
+        let testItem2 = Item(name: "testItem2", isChecked: false)
+        let itemListViewModel = ItemListViewModel(name: "Todo List test",
+                                                  items: [ItemViewModel(item: testItem1),
+                                                          ItemViewModel(item: testItem2)])
+        itemListViewModel.itemNameFieldText = ""
+        XCTAssertEqual(itemListViewModel.textsAreAppropriate(), false)
+        
+        itemListViewModel.itemNameFieldText = "something"
+        XCTAssertEqual(itemListViewModel.textsAreAppropriate(), true)
+    }
     
 }
+
+//func textsAreAppropriate() -> Bool {
+//    if itemNameFieldText.count == 0 {
+//        alertTitle = "Item's name must not be blank"
+//        showAlert.toggle()
+//        return false
+//    }
+//    return true
+//}
