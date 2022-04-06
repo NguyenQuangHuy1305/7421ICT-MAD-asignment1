@@ -13,7 +13,7 @@ struct ContentView: View {
         name: "My List",
         lists: [
             ItemListViewModel(
-                name: "Todo list 1",
+                name: "Item list 1",
                 items: [
                     ItemViewModel(
                         item: Item(
@@ -42,7 +42,7 @@ struct ContentView: View {
                 ]
             ),
             ItemListViewModel(
-                name: "Todo list 2",
+                name: "Item list 2",
                 items: [
                     ItemViewModel(
                         item: Item(

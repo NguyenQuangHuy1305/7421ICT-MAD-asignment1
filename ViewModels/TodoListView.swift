@@ -25,11 +25,11 @@ struct TodoListView: View {
         VStack {
             NavigationView {
                 List {
-                    ForEach(viewModel.lists) {todolist in
+                    ForEach(viewModel.lists) {itemList in
                         NavigationLink {
-                            ItemListView(viewModel: todolist)
+                            ItemListView(viewModel: itemList)
                         } label: {
-                            TodoListLabel(viewModel: todolist)
+                            TodoListLabel(viewModel: itemList)
                         }
 //                        NavigationLink("\(todolist.name)") {
 //                            ItemListView(viewModel: todolist)
