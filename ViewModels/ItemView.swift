@@ -10,17 +10,26 @@ import SwiftUI
 struct ItemView: View {
     
     @ObservedObject var viewModel: ItemViewModel
-    
+    @Environment(\.editMode) var editMode
+
     var body: some View {
-        HStack {
-            // the image for the checkmark
-            Image(systemName: viewModel.item.isChecked ? "checkmark.square" : "square")
-                .foregroundColor(viewModel.item.isChecked ? .green : .red)
-            Text(viewModel.item.name)
-        }
-        .onTapGesture {
-            withAnimation(.linear) {
-                viewModel.toggleChecked()
+        if editMode?.wrappedValue == .active {
+            HStack {
+                Image(systemName: viewModel.item.isChecked ? "checkmark.square" : "square")
+                    .foregroundColor(viewModel.item.isChecked ? .green : .red)
+                TextField("Item name here", text: $viewModel.item.name)
+            }
+        } else {
+            HStack {
+                // the image for the checkmark
+                Image(systemName: viewModel.item.isChecked ? "checkmark.square" : "square")
+                    .foregroundColor(viewModel.item.isChecked ? .green : .red)
+                Text(viewModel.item.name)
+            }
+            .onTapGesture {
+                withAnimation(.linear) {
+                    viewModel.toggleChecked()
+                }
             }
         }
     }

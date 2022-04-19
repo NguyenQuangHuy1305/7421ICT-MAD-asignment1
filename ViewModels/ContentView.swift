@@ -62,7 +62,14 @@ struct ContentView: View {
     )
     
     var body: some View {
-        TodoListView(viewModel: viewModel)
+        // note: hasLoaded is a variable default false within the viewModel (not sure!), which then will be flipped to true in the load Funtion
+//        NavigationView{
+//            if viewModel.hasLoaded {
+//                ProgressView()
+//            } else {
+                TodoListView(viewModel: viewModel)
+//            }
+//        }
     }
 }
 
