@@ -31,9 +31,6 @@ struct TodoListView: View {
                         } label: {
                             TodoListLabel(viewModel: itemList)
                         }
-//                        NavigationLink("\(todolist.name)") {
-//                            ItemListView(viewModel: todolist)
-//                        }
                     }
                     .onDelete(perform: viewModel.deleteTodoList)
                     .onMove(perform: viewModel.moveTodoList)

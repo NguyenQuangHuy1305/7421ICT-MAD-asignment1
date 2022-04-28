@@ -26,7 +26,7 @@
 //    fatalError("Unable to write file to \(filePath.path)")
 //}
 //
-//// decode and then store data in readPerson?
+//// decode and then store data in readData?
 //let decoder = JSONDecoder()
 //guard let readData: Data = try? Data(contentsOf: filePath) else {
 //    fatalError("Unable to read file \(filePath.path)")

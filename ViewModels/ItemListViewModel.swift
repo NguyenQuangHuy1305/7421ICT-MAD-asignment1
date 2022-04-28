@@ -8,9 +8,11 @@
 import Foundation
 import SwiftUI
 
-class ItemListViewModel: ObservableObject, Identifiable {
+class ItemListViewModel: ObservableObject, Identifiable, Codable {
     
-    // created a struct inside to generate a clone
+    let file: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("data.json", isDirectory: false)
+    
+    // created a struct to generate a clone
     private struct Data {
         var name: String
         var items: [ItemViewModel]
@@ -30,13 +32,12 @@ class ItemListViewModel: ObservableObject, Identifiable {
     @Published var showAlert: Bool = false
     
     // how does @Published and private even work together?
-    @Published private var data: Data
-    
+    @Published private var data: Data // because data is published, data.name and data.items from line 39 and 42 is published aswel (need confirmation)
     @Published private var previous: Data
         
     var name: String {
         get {
-            // when we get value from name, we instead got data.name
+            // when we get value from the var name, we instead got data.name
             data.name
         } set {
             // when we set value for name, the data.name got updated
@@ -46,32 +47,50 @@ class ItemListViewModel: ObservableObject, Identifiable {
     
     var items: [ItemViewModel] {
         get {
-            // what does this line return? do?
             data.items
         } set {
-            // when ItemListViewModel gets called, set{} will also assign data.items with newValue
             data.items = newValue
         }
     }
     
-    // init the data struct
+    // init for the data struct
     private init(data: Data) {
         self.data = data
-        // data struct don't have var previous, so what does self.previous mean?
         self.previous = data.cloned
     }
     
     // convenience init the ItemListViewModel, convenience means that it will only init optional vars
     convenience init(name: String, items: [ItemViewModel]) {
         self.init(data: Data(name: name, items: items))
+//        self.name = name
+//        self.items = items
     }
     
-//    // a func that makes a backup, why did we need this?
-//    func backup() {
-//        previous = data.cloned
-//    }
+    ///
+
+    enum CodingKeys: String, CodingKey {
+        case name
+        case items
+    }
     
-    // Perform undo operation, not sure how this work but it does
+    // decodable conformance
+    required convenience init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let name = try container.decode(String.self, forKey: .name)
+        let items = try container.decode([ItemViewModel].self, forKey: .items)
+        self.init(name: name, items: items)
+    }
+
+    // codable conformance
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.name, forKey: .name)
+        try container.encode(self.items, forKey: .items)
+    }
+
+    ///
+    
+    // Perform undo operation
     func restoreBackup() {
         data = previous
         previous = data.cloned
@@ -85,6 +104,7 @@ class ItemListViewModel: ObservableObject, Identifiable {
     
     func deleteItem(indexSet: IndexSet) {
         items.remove(atOffsets: indexSet)
+//        TodoListViewModel(toFile: file)
     }
 
     func moveItem(from: IndexSet, to: Int) {

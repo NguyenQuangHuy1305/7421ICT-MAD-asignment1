@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Item: Encodable, Decodable {
+struct Item: Codable {
     
     var name: String
     
