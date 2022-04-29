@@ -56,7 +56,7 @@ class testTodoListViewModel: XCTestCase {
         XCTAssertEqual(todoListViewModel.lists.count, 0)
     }
 
-    func test_FuncMoveTodoList_TodoListViewModel () {
+    func test_Func_MoveTodoList_TodoListViewModel () {
         // 1st todoList
         let name1 = "checklist1"
         let testItem1 = Item(name: "testItem1", isChecked: false)
@@ -78,5 +78,25 @@ class testTodoListViewModel: XCTestCase {
         todoListViewModel.moveTodoList(from: [1], to: 0)
 
         XCTAssertEqual(todoListViewModel.lists[0].name, "Todo List test2")
+    }
+    
+    func test_Func_save_load_TodoListViewModel () {
+        let file: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("data.json", isDirectory: false)
+        
+        // 1st list
+        let name1 = "checklist1"
+        let testItem1 = Item(name: "testItem1", isChecked: false)
+        let testItem2 = Item(name: "testItem2", isChecked: false)
+        let itemListViewModel1 = ItemListViewModel(name: "To do list save, load func test",
+                                                  items: [ItemViewModel(item: testItem1),
+                                                          ItemViewModel(item: testItem2)])
+        // this is the test todoListViewModel
+        let todoListViewModel = TodoListViewModel(name: name1, lists: [itemListViewModel1])
+
+        todoListViewModel.save(toFile: file)
+        
+        todoListViewModel.load(fromFile: file)
+        
+        XCTAssertEqual(todoListViewModel.lists[0].name, "To do list save, load func test")
     }
 }
