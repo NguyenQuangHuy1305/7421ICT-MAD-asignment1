@@ -17,6 +17,7 @@ class testItemViewModel: XCTestCase {
         XCTAssertEqual(itemViewModel.item.name, "testItem")
     }
     
+    // test if I can toggle an item's checked state
     func testFuncToggleCheckedItemViewModel () {
         let testItem = Item(name: "testItem", isChecked: false)
         let itemViewModel = ItemViewModel(item: testItem)
@@ -24,6 +25,7 @@ class testItemViewModel: XCTestCase {
         XCTAssertEqual(itemViewModel.item.isChecked, true)
     }
     
+    // test reset button
     func testFuncUnCheckItemViewModel () {
         let testItem = Item(name: "testItem", isChecked: false)
         let itemViewModel = ItemViewModel(item: testItem)

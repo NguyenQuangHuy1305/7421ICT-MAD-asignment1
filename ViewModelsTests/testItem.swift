@@ -10,6 +10,7 @@ import XCTest
 
 class testItem: XCTestCase {
 
+    // test item init
     func testItem() {
         let testItem = Item(name: "testItem", isChecked: false)
         XCTAssertEqual("testItem", testItem.name)

@@ -12,12 +12,12 @@ class ItemListViewModel: ObservableObject, Identifiable, Codable {
     
     let file: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("data.json", isDirectory: false)
     
-    // created a struct to generate a clone
+    /// created a struct to generate a clone
     private struct Data {
         var name: String
         var items: [ItemViewModel]
         
-        // there will be a clone of itself for "restoreBackUp" purposes
+        /// there will be a clone of itself for "restoreBackUp" purposes
         var cloned: Data {
             Data(name: name, items: items.map { ItemViewModel(item: $0.item) }) // need explaining on this line
         }
@@ -37,10 +37,10 @@ class ItemListViewModel: ObservableObject, Identifiable, Codable {
         
     var name: String {
         get {
-            // when we get value from the var name, we instead got data.name
+            /// when we get value from the var name, we instead got data.name
             data.name
         } set {
-            // when we set value for name, the data.name got updated
+            /// when we set value for name, the data.name got updated
             data.name = newValue
         }
     }
@@ -53,27 +53,24 @@ class ItemListViewModel: ObservableObject, Identifiable, Codable {
         }
     }
     
-    // init for the data struct
+    /// init for the data struct
     private init(data: Data) {
         self.data = data
         self.previous = data.cloned
     }
     
-    // convenience init the ItemListViewModel, convenience means that it will only init optional vars
+    /// convenience init the ItemListViewModel, convenience means that it will only init optional vars
     convenience init(name: String, items: [ItemViewModel]) {
         self.init(data: Data(name: name, items: items))
-//        self.name = name
-//        self.items = items
     }
     
-    ///
-
+    /// making the class codable
     enum CodingKeys: String, CodingKey {
         case name
         case items
     }
     
-    // decodable conformance
+    /// decodable conformance
     required convenience init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let name = try container.decode(String.self, forKey: .name)
@@ -81,53 +78,63 @@ class ItemListViewModel: ObservableObject, Identifiable, Codable {
         self.init(name: name, items: items)
     }
 
-    // codable conformance
+    /// codable conformance
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(self.name, forKey: .name)
         try container.encode(self.items, forKey: .items)
     }
-
-    ///
     
-    // Perform undo operation
+    /// Perform undo operation
     func restoreBackup() {
         data = previous
         previous = data.cloned
     }
     
+    /// func to reset the check status of all items within that ItemList
     func resetItems() {
         for item in items {
             item.uncheck()
         }
     }
     
+    /// func to delete an Item
+    /// - Parameter indexSet: a set of index generated according to where the user swiped to delete
     func deleteItem(indexSet: IndexSet) {
         items.remove(atOffsets: indexSet)
-//        TodoListViewModel(toFile: file)
     }
-
+    
+    /// func to move an Item
+    /// - Parameters:
+    ///   - from: a set of index generated where the user started swiping
+    ///   - to: to where the user stopped swiping
     func moveItem(from: IndexSet, to: Int) {
         items.move(fromOffsets: from, toOffset: to)
     }
-
+    
+    /// func to add an item
+    /// - Parameter itemNameFieldText: field text for the user to type the new Item's name
     func addItem(itemNameFieldText: String) {
         let newItem = ItemViewModel(item: Item(name: itemNameFieldText, isChecked: false))
         items.append(newItem)
         self.itemNameFieldText = ""
     }
     
+    /// func to rename an ItemList
     func renameTodolist() {
         data.name = todolistName
         todolistName = ""
     }
     
+    /// func to detect when the "addItem" button is pressed, it also call the textsAreAppropriate() func
     func addButtonPressed() {
         if textsAreAppropriate() {
             addItem(itemNameFieldText: itemNameFieldText)
         }
     }
     
+    /// check if the field text is not 0, if count = 0 -> false, if !=0 then true
+    /// - Returns: <#description#>
     func textsAreAppropriate() -> Bool {
         if itemNameFieldText.count == 0 {
             alertTitle = "Item's name must not be blank"
@@ -137,16 +144,9 @@ class ItemListViewModel: ObservableObject, Identifiable, Codable {
         return true
     }
     
+    /// func to get the alert when text are not appropriate
+    /// - Returns: return the alertTitle text
     func getAlert() -> Alert {
         return Alert(title: Text(alertTitle))
     }
-//
-//    func updateItem(item: Item) {
-//        // this part get the 1st index of the item array which was passed in (from somewhere), however I'll only pass 1 item in, so the bow if will always be correct
-//        // the main point is to get the pressed item's index, so that I will know which item to update
-//        if let index = todolistItems.firstIndex (where: {$0.id == item.id}) {
-//            todolistItems[index] = item.updateComplete()
-////            todolistItemsBackUp[index] = item.updateComplete() // don't need this line bcs updateComplete() modify the Item itself, which mean the  modified isCompleted should be loaded back to the ItemListView immediately
-//        }
-//    }
 }
